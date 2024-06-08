@@ -9,4 +9,9 @@ public class Attribute : ScriptableObject
     public int Strength = 50;
     public int Intelligence = 70;
     public int Defense = 40;
+
+    public override string ToString()
+    {
+        return name;
+    }
 }

@@ -10,6 +10,7 @@ public class Pickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var inventory = other.GetComponentInChildren<Inventory>();
+
         if (inventory)
         {
             inventory.Add(item);

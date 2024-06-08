@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] Player player;
+    //[SerializeField] Player player;
 
     [SerializeField] List<Enums> items = new List<Enums>();
 
@@ -22,9 +22,10 @@ public class Inventory : MonoBehaviour
         //onRemoveItem?.Invoke(item);
     }
 
-    public void Use(Enums item)
-    {
-        //item.Use(player);
-        //onUseItem?.Invoke(item);
-    }
+    //public void Use(Enums item)
+    //{
+    //    item.Use(player);
+    //    //onUseItem?.Invoke(item);
+    //}
 }
+
