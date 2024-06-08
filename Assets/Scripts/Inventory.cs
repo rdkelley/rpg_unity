@@ -9,22 +9,22 @@ public class Inventory : MonoBehaviour
     [SerializeField] List<Enums> items = new List<Enums>();
 
     //public Action<Item> onAddItem, onUseItem, onRemoveItem;
-    public void Add(Item item)
+    public void Add(Enums item)
     {
         items.Add(item);
         Debug.Log(item);
         //onAddItem?.Invoke(item);
     }
 
-    public void Remove(Item item)
+    public void Remove(Enums item)
     {
         items.Remove(item);
         //onRemoveItem?.Invoke(item);
     }
 
-    public void Use(Item item)
+    public void Use(Enums item)
     {
-        item.Use(player);
+        //item.Use(player);
         //onUseItem?.Invoke(item);
     }
 }
