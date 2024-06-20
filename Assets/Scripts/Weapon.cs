@@ -26,6 +26,9 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hit");
+
+        Debug.Log(other);
         //var character = other.GetComponent<ICharacter>();
 
         //Avoid attacking yourself

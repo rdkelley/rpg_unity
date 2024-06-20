@@ -31,8 +31,6 @@ public class Combat : MonoBehaviour
     //This function is called when the player presses LMB
     public void OnAttack()
     {
-        Debug.Log("Attack");
-        Debug.Log(attacking);
         if (attacking)
             return;
 
