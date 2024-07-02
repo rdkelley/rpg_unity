@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] Attribute strength, defense, intelligence, hp, mana, xp;
     [SerializeField] Dictionary<Attribute, Wrapper> stats = new Dictionary<Attribute, Wrapper>();
 
+    [SerializeField] Animator animator;
+
     //Player gains experience by defeating enemies.
     //If the XP reaches its max, the character levels up. 
     internal void AddXP()
@@ -82,7 +84,11 @@ public class Player : MonoBehaviour
     {
         var stat = Get<Notifier>(hp);
         stat.Add(Get<Stats>(defense).Total - damage);
-        //animator.SetTrigger("React");
+
+        Debug.Log("Received " + damage + " damage");
+        Debug.Log("New defense: " + Get<Stats>(defense).Total);
+
+        animator.SetTrigger("React");
     }
 
     //All classes can use this function to access a character's wrappers

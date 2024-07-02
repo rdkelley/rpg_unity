@@ -17,18 +17,32 @@ public class Weapon : MonoBehaviour
     }
 
     //ICharacter is an interface that all game character inherit from
-    //[SerializeField] ICharacter owner;
+    [SerializeField] Player owner;
     private void OnValidate()
     {
         //We get a reference to the ICharacter by checking the parent GameObjects
-        //owner = GetComponentInParent<ICharacter>();
+        owner = GetComponentInParent<Player>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit");
+        if (other.transform.root == transform.root)
+        {
+            return;
+        }
 
-        Debug.Log(other);
+        
+
+        var character = other.GetComponent<Player>();
+
+        Debug.Log("Hit " + character);
+
+        character.ReceiveDmg(owner.TotalDmg);
+
+        //Deactivate the weapon to prevent damaging multiple times with one swing.
+        Deactivate();
+
+
         //var character = other.GetComponent<ICharacter>();
 
         //Avoid attacking yourself
