@@ -31,31 +31,17 @@ public class Weapon : MonoBehaviour
             return;
         }
 
-        
-
         var character = other.GetComponent<Player>();
 
-        Debug.Log("Hit " + character);
+        Debug.Log("character: " + character);
 
-        character.ReceiveDmg(owner.TotalDmg);
+        if (character)
+        {
+            character.ReceiveDmg(owner.TotalDmg);
+        }
 
         //Deactivate the weapon to prevent damaging multiple times with one swing.
         Deactivate();
 
-
-        //var character = other.GetComponent<ICharacter>();
-
-        //Avoid attacking yourself
-        //if (character == owner)
-        //{
-        //    return;
-        //}
-        //if (character != null)
-        //{
-        //    character.ReceiveDmg(owner.TotalDmg);
-
-        //    //Deactivate the weapon to prevent damaging multiple times with one swing.
-        //    Deactivate();
-        //}
     }
 }
