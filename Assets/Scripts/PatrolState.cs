@@ -14,12 +14,16 @@ public class PatrolState : State
     [SerializeField] ReactState reactState;
     [SerializeField] IdleState idleState;
 
+    int pointsReached;
+
     private new void OnValidate()
     {
         base.OnValidate();
         chaseState = GetComponent<ChaseState>();
         reactState = GetComponent<ReactState>();
         idleState = GetComponent<IdleState>();
+
+        pointsReached = 0;
     }
 
     public override void Setup()
@@ -43,16 +47,22 @@ public class PatrolState : State
 
     private void Update()
     {
-        if (los.Detected())
+        if (pointsReached == 1)
         {
             Transition(chaseState);
             return;
         }
+        //if (los.Detected())
+        //{
+        //    Transition(chaseState);
+        //    return;
+        //}
 
         animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
 
         if (agent.remainingDistance < minDistance)
         {
+            pointsReached++;
             Transition(idleState);
         }
     }

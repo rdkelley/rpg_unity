@@ -7,7 +7,7 @@ public class ChaseState : State
     [Header("Properties")]
     [SerializeField] float maxDistance;
     [SerializeField] float distanceThreshold;
-    //[SerializeField] Transform eyes;
+    [SerializeField] Transform eyes;
 
     [Header("States")]
     [SerializeField] AttackState attackState;
@@ -28,42 +28,43 @@ public class ChaseState : State
 
     public override void Setup()
     {
+        Debug.Log("Chase state enabled");
         enemy.hp.onChange += () => Transition(reactState);
     }
 
     int miss;
     private IEnumerator Check()
     {
-        //while (true)
-        //{
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(eyes.position, player.transform.position - transform.position, out hit, maxDistance))
-        //    {
-        //        if (hit.distance < distanceThreshold)
-        //        {
-        //            Debug.Log("Dis:" + hit.distance);
-        //            Transition(attackState);
-        //            break;
-        //        }
-        //        var p = hit.transform.GetComponent<Player>();
-        //        if (!p)
-        //        {
-        //            miss++;
-        //            if (miss > 5)
-        //            {
-        //                Transition(idleState);
-        //                break;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            miss = 0;
-        //        }
-        //    }
-        //    if (agent.enabled)
-        //        agent.SetDestination(player.transform.position);
+        while (true)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(eyes.position, player.transform.position - transform.position, out hit, maxDistance))
+            {
+                if (hit.distance < distanceThreshold)
+                {
+                    Debug.Log("Dis:" + hit.distance);
+                    Transition(attackState);
+                    break;
+                }
+                var p = hit.transform.GetComponent<Player>();
+                //if (!p)
+                //{
+                //    miss++;
+                //    if (miss > 5)
+                //    {
+                //        Transition(idleState);
+                //        break;
+                //    }
+                //}
+                //else
+                //{
+                //    miss = 0;
+                //}
+            }
+            if (agent.enabled)
+                agent.SetDestination(player.transform.position);
             yield return new WaitForSeconds(.5f);
-        //}
+        }
     }
 
     Coroutine checking;
@@ -71,6 +72,7 @@ public class ChaseState : State
     {
         miss = 0;
         agent.enabled = true;
+        agent.speed = 3;
         if (checking != null)
             StopCoroutine(checking);
         checking = StartCoroutine(Check());
