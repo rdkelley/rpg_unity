@@ -16,6 +16,7 @@ public class FSM : MonoBehaviour
         states = GetComponentsInChildren<State>().ToList();
 
     }
+
     private void Start()
     {
         foreach (var state in states)
@@ -23,11 +24,15 @@ public class FSM : MonoBehaviour
             state.onEnter += ChangeState;
             state.Setup();
         }
+
+        Debug.Log("Setting current state to " + current);
         current.enabled = true;
     }
 
     void ChangeState(State other)
     {
+        Debug.Log("Changing state from " + current + " to " + other);
+
         current.enabled = false;
         current = other;
         current.enabled = true;

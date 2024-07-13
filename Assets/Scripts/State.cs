@@ -12,6 +12,7 @@ public abstract class State : MonoBehaviour
     [SerializeField] protected LineOfSight los;
     [SerializeField] protected Enemy enemy;
     [SerializeField] protected Player player;
+
     public event Action<State> onEnter;
 
     public void OnValidate()

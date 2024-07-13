@@ -13,11 +13,12 @@ public class ReactState : State
 
     public override void Setup()
     {
+
     }
 
     private void OnEnable()
     {
-
+        Debug.Log("React state enabled");
     }
 
     private void Update()

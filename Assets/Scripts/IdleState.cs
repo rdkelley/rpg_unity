@@ -28,7 +28,8 @@ public class IdleState : State
 
     private void OnEnable()
     {
-        Debug.Log("Idle state called");
+        Debug.Log("Idle state enabled");
+
         elapsed = 0;
         animator.SetFloat("Speed", 0);
     }

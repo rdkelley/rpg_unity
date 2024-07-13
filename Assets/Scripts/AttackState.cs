@@ -48,6 +48,7 @@ public class AttackState : State
 
     private void OnEnable()
     {
+        Debug.Log("Attacking state enabled");
         attacking = false;
     }
 

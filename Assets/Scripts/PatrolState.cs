@@ -29,6 +29,8 @@ public class PatrolState : State
 
     private void OnEnable()
     {
+        Debug.Log("Patroling state enabled");
+
         agent.SetDestination(waypoints[current++].position);
         if (current == waypoints.Count)
             current = 0;
