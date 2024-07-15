@@ -47,7 +47,7 @@ public class PatrolState : State
 
     private void Update()
     {
-        if (pointsReached == 1)
+        if (pointsReached == 2)
         {
             Transition(chaseState);
             return;

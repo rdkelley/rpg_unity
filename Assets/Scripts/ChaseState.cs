@@ -72,7 +72,7 @@ public class ChaseState : State
     {
         miss = 0;
         agent.enabled = true;
-        agent.speed = 3;
+        agent.speed = 5;
         if (checking != null)
             StopCoroutine(checking);
         checking = StartCoroutine(Check());
