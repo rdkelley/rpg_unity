@@ -21,6 +21,10 @@ public class ChaseState : State
         idleState = GetComponent<IdleState>();
     }
 
+    public void OnFootstep()
+    {
+        Debug.Log("Footstep animation has started!");
+    }
     private void Update()
     {
         animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
