@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using StarterAssets;
 
 public class Combat : MonoBehaviour
@@ -8,6 +9,8 @@ public class Combat : MonoBehaviour
     [SerializeField] Animator animator;
     //[SerializeField] Weapon weapon;
     [SerializeField] ThirdPersonController controller;
+    [SerializeField] bool aiming;
+    [SerializeField] bool attacking;
 
     private void OnValidate()
     {
@@ -15,8 +18,6 @@ public class Combat : MonoBehaviour
         controller = GetComponent<ThirdPersonController>();
     }
 
-    //Should not attack if already attacking
-    bool attacking;
     bool Attacking
     {
         set
@@ -36,6 +37,12 @@ public class Combat : MonoBehaviour
 
         //weapon = GetComponentInChildren<Weapon>();
         animator.SetTrigger("Attack");
+    }
+
+    public void OnAim(InputValue value)
+    {
+        aiming = value.isPressed;
+        animator.SetBool("Aim", aiming);
     }
 
     //An animation event raised when the sword can damage others

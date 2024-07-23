@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -89,6 +90,11 @@ public class Player : MonoBehaviour
         Debug.Log("New defense: " + Get<Stats>(defense).Total);
 
         animator.SetTrigger("React");
+    }
+
+    public void OnAim(InputValue value)
+    {
+
     }
 
     //All classes can use this function to access a character's wrappers
