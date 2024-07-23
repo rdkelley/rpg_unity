@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMoveState : PlayerState
 {
@@ -21,8 +22,11 @@ public class PlayerMoveState : PlayerState
 
     }
 
-    public void OnAim()
+    public void OnAim(InputAction.CallbackContext context)
     {
-        Transition(aimState);
+        if (context.performed)
+        {
+            Transition(aimState);
+        }
     }
 }
