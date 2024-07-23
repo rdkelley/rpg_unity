@@ -4,16 +4,16 @@ using System.Linq;
 
 using UnityEngine;
 
-public class FSM : MonoBehaviour
+public class PlayerFSM : MonoBehaviour
 {
-    [SerializeField] List<State> states;
+    [SerializeField] List<PlayerState> states;
 
     //Set this in the Inspector window
-    [SerializeField] State current;
+    [SerializeField] PlayerState current;
 
     private void OnValidate()
     {
-        states = GetComponentsInChildren<State>().ToList();
+        states = GetComponentsInChildren<PlayerState>().ToList();
     }
 
     private void Start()
@@ -28,7 +28,7 @@ public class FSM : MonoBehaviour
         current.enabled = true;
     }
 
-    void ChangeState(State other)
+    void ChangeState(PlayerState other)
     {
         Debug.Log("Changing state from " + current + " to " + other);
 
