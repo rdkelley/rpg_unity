@@ -17154,6 +17154,9 @@ GameObject:
   - component: {fileID: 1505180159688683854}
   - component: {fileID: 9100716558975687071}
   - component: {fileID: 1548539221903933513}
+  - component: {fileID: 5901706805729695392}
+  - component: {fileID: 1017499106086273221}
+  - component: {fileID: 2313202475079140560}
   m_Layer: 0
   m_Name: Chr_FantasyHero_Preset_89
   m_TagString: Untagged
@@ -17176,6 +17179,7 @@ Transform:
   m_Children:
   - {fileID: 4209871486837878}
   - {fileID: 4035366180729710}
+  - {fileID: 5732407191400432038}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95071189463788160
@@ -17224,7 +17228,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!114 &1140815437168884617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17274,19 +17278,18 @@ MonoBehaviour:
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 0}
   FootstepAudioClips: []
-  FootstepAudioVolume: 0.5
+  FootstepAudioVolume: 0.547
   JumpHeight: 1.2
   Gravity: -15
-  JumpTimeout: 0.5
+  JumpTimeout: 0.53
   FallTimeout: 0.15
-  Grounded: 1
+  Grounded: 0
   GroundedOffset: -0.14
-  GroundedRadius: 0.28
+  GroundedRadius: 0.31
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1
-  CinemachineCameraTarget: {fileID: 6664487780866915713, guid: e8554189736750d41970590b6b91cbb8,
-    type: 3}
+  CinemachineCameraTarget: {fileID: 844282356733110518}
   TopClamp: 70
   BottomClamp: -30
   CameraAngleOverride: 0
@@ -17348,7 +17351,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245949954226516}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 62
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -17387,7 +17390,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &9100716558975687071
@@ -17416,19 +17419,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063c9822bfc467943a78e94a145b4720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpGain: 0
-  maxHp: 0
-  maxMana: 0
-  maxXp: 0
-  baseStr: 0
-  baseDef: 0
-  baseInt: 0
+  xpGain: 100
+  maxHp: 100
+  maxMana: 100
+  maxXp: 100
+  baseStr: 100
+  baseDef: 100
+  baseInt: 100
   strength: {fileID: 11400000, guid: 14a74f62d1987a549a9dcd3b9147a3f6, type: 2}
   defense: {fileID: 11400000, guid: a6efde09fef040e4b81c1b47b9503839, type: 2}
   intelligence: {fileID: 11400000, guid: 1989c994cced04e45ad3b16fd1f2b565, type: 2}
   hp: {fileID: 11400000, guid: 4acc45a7c44164640b390d6a7278909f, type: 2}
   mana: {fileID: 11400000, guid: bc1cb185178ea5349b19c2e6cd5d9641, type: 2}
   xp: {fileID: 11400000, guid: a288f1d261efac244883afa6967357ad, type: 2}
+  animator: {fileID: 95071189463788160}
+--- !u!114 &5901706805729695392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245949954226516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6e585cb2f92714b9fc7faaca782eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: 1017499106086273221}
+  - {fileID: 2313202475079140560}
+  current: {fileID: 1017499106086273221}
+--- !u!114 &1017499106086273221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245949954226516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03a4cf7d9c1674498855026fd8b503c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95071189463788160}
+  current: 0
+  aimState: {fileID: 2313202475079140560}
+--- !u!114 &2313202475079140560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245949954226516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c50712f852b8c4bb83ba54976a860c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   animator: {fileID: 95071189463788160}
 --- !u!1 &1246444957811632
 GameObject:
@@ -69441,6 +69488,37 @@ SkinnedMeshRenderer:
     m_Center: {x: -17.86436, y: 0.04281521, z: 0}
     m_Extent: {x: 18.130306, y: 15.082178, z: 13.306488}
   m_DirtyAABB: 0
+--- !u!1 &844282356733110518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5732407191400432038}
+  m_Layer: 0
+  m_Name: EyesCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5732407191400432038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844282356733110518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.76, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4584312976468612}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3890832718983282162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69517,6 +69595,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1954434772761598684}
+    - targetCorrespondingSourceObject: {fileID: 1693058865961630, guid: 1a66284f93ee5da4faa156902261b154,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6148035769752046962}
   m_SourcePrefab: {fileID: 100100000, guid: 1a66284f93ee5da4faa156902261b154, type: 3}
 --- !u!4 &3886468677912878900 stripped
 Transform:
@@ -69553,6 +69635,20 @@ CapsuleCollider:
   m_Height: 1.2098321
   m_Direction: 1
   m_Center: {x: -0.000022159227, y: 0.511992, z: 0.00003368241}
+--- !u!114 &6148035769752046962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3889140224369698668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8a541ca668ea24ea561e745760560f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 1954434772761598684}
+  owner: {fileID: 0}
 --- !u!1001 &7658634936433616647
 PrefabInstance:
   m_ObjectHideFlags: 0

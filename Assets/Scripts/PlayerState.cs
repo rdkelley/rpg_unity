@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
+using StarterAssets;
 
 public abstract class PlayerState : MonoBehaviour
 {
     [SerializeField] protected Animator animator;
+    [SerializeField] protected Camera camera;
+    [SerializeField] protected ThirdPersonController controller;
 
     public event Action<PlayerState> onEnter;
 
