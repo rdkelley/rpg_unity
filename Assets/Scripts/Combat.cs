@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 using StarterAssets;
 
 public class Combat : MonoBehaviour
@@ -11,11 +12,25 @@ public class Combat : MonoBehaviour
     [SerializeField] ThirdPersonController controller;
     [SerializeField] bool aiming;
     [SerializeField] bool attacking;
+    [SerializeField] private CinemachineVirtualCamera aimCamera;
+
+    PlayerInput playerInput;
+
+    Vector3 aimDirection;
+    Vector3 aimHitPoint;
+
+    RaycastHit hit;
+
+    public Camera camera;
 
     private void OnValidate()
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<ThirdPersonController>();
+        playerInput = GetComponent<PlayerInput>();
+
+        aimDirection = Vector3.zero;
+        aimHitPoint = Vector3.zero;
     }
 
     bool Attacking
@@ -29,20 +44,70 @@ public class Combat : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
+
+        if (aiming)
+        {
+            aimCamera.gameObject.SetActive(true);
+
+            Ray ray = Camera.main.ScreenPointToRay(screenCenter);
+
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                aimHitPoint = hit.point;
+            }
+
+            aimDirection = (aimHitPoint - aimCamera.gameObject.transform.position).normalized;
+
+            transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 30);
+        }
+        else
+        {
+            aimCamera.gameObject.SetActive(false);
+        }
+    }
+
     //This function is called when the player presses LMB
     public void OnAttack()
     {
         if (attacking)
             return;
 
-        //weapon = GetComponentInChildren<Weapon>();
-        animator.SetTrigger("Attack");
+        if (aiming)
+        {
+            Debug.Log("Sleep dart fired at: " + hit.collider);
+
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+
+            if (enemy)
+            {
+                enemy.Sleep();
+            }
+        }
+        else
+        {
+            //weapon = GetComponentInChildren<Weapon>();
+
+            //animator.SetTrigger("Attack");
+        }
     }
 
     public void OnAim(InputValue value)
     {
         aiming = value.isPressed;
         animator.SetBool("Aim", aiming);
+
+        if (value.isPressed)
+        {
+
+            playerInput.actions.FindAction("Move").Disable();
+        }
+        else
+        {
+            playerInput.actions.FindAction("Move").Enable();
+        }
     }
 
     //An animation event raised when the sword can damage others

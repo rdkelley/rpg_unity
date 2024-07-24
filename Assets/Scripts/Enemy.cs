@@ -43,6 +43,11 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("React");
     }
 
+    public void Sleep()
+    {
+        Debug.Log("Sleeping");
+    }
+
     //All classes can use this function to access a character's wrappers
     //simply by referencing an attribute ScriptableObject 
     public T Get<T>(Attribute attribute) where T : Wrapper
