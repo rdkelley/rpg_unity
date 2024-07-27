@@ -87,14 +87,8 @@ public class Player : MonoBehaviour
         stat.Add(Get<Stats>(defense).Total - damage);
 
         Debug.Log("Received " + damage + " damage");
-        Debug.Log("New defense: " + Get<Stats>(defense).Total);
 
         animator.SetTrigger("React");
-    }
-
-    public void OnAim(InputValue value)
-    {
-
     }
 
     //All classes can use this function to access a character's wrappers

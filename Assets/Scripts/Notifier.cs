@@ -9,6 +9,7 @@ public class Notifier : Wrapper
     [SerializeField] float max;
     public float Max => max;
     public event Action onChange;
+
     public Notifier(float amount, float max)
     {
         this.amount = amount;
