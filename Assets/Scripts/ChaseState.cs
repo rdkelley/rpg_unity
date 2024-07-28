@@ -13,6 +13,7 @@ public class ChaseState : State
     [SerializeField] AttackState attackState;
     [SerializeField] ReactState reactState;
     [SerializeField] IdleState idleState;
+
     private new void OnValidate()
     {
         base.OnValidate();
@@ -23,8 +24,9 @@ public class ChaseState : State
 
     public void OnFootstep()
     {
-        Debug.Log("Footstep animation has started!");
+        //Debug.Log("Footstep animation has started!");
     }
+
     private void Update()
     {
         animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
@@ -44,13 +46,18 @@ public class ChaseState : State
             RaycastHit hit;
             if (Physics.Raycast(eyes.position, player.transform.position - transform.position, out hit, maxDistance))
             {
+                Debug.Log("Dis:" + hit.distance);
+                Debug.Log("distanceThreshold:" + distanceThreshold);
+                Debug.Log("hit:" + hit.collider.gameObject);
+
                 if (hit.distance < distanceThreshold)
                 {
-                    Debug.Log("Dis:" + hit.distance);
+
                     Transition(attackState);
                     break;
                 }
                 var p = hit.transform.GetComponent<Player>();
+
                 //if (!p)
                 //{
                 //    miss++;

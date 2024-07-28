@@ -41,7 +41,9 @@ public class IdleState : State
             Transition(chaseState);
             return;
         }
+
         elapsed += Time.deltaTime;
+
         if (elapsed > cooldown)
         {
             Transition(patrolState);

@@ -8,11 +8,13 @@ using StarterAssets;
 public class Combat : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    //[SerializeField] Weapon weapon;
+    [SerializeField] Weapon weapon;
     [SerializeField] ThirdPersonController controller;
     [SerializeField] bool aiming;
     [SerializeField] bool attacking;
     [SerializeField] private CinemachineVirtualCamera aimCamera;
+
+    [SerializeField] ManaBar manabar;
 
     PlayerInput playerInput;
 
@@ -75,22 +77,30 @@ public class Combat : MonoBehaviour
         if (attacking)
             return;
 
+        Enemy enemy;
+
         if (aiming)
         {
             Debug.Log("Sleep dart fired at: " + hit.collider);
 
-            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            manabar.UseMana(50);
 
-            if (enemy)
+            if (hit.collider)
             {
-                enemy.Sleep();
+                enemy = hit.collider.GetComponent<Enemy>();
+
+                if (enemy)
+                {
+                    enemy.Sleep();
+                }
             }
+
         }
         else
         {
-            //weapon = GetComponentInChildren<Weapon>();
+            weapon = GetComponentInChildren<Weapon>();
 
-            //animator.SetTrigger("Attack");
+            animator.SetTrigger("Attack");
         }
     }
 

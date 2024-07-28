@@ -14,14 +14,6 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
-        }
-    }
-
     void UpdateHealthBar()
     {
         if (healthSlider.value != currentHealth)
@@ -32,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        Debug.Log("Player took " + damageAmount + " damage!");
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth); // Ensure health doesn't go below zero
         UpdateHealthBar();

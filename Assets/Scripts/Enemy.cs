@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Dictionary<Attribute, Wrapper> stats = new Dictionary<Attribute, Wrapper>();
 
     [SerializeField] Animator animator;
+    [SerializeField] Player player;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,19 @@ public class Enemy : MonoBehaviour
         stats.Add(xp, new Notifier(0, maxXp));
     }
 
+    //A character's strength determines its damage 
+    public float TotalDmg
+    {
+        get
+        {
+            var str = Get<Stats>(strength);
+            if (str != null)
+                return str.Total;
+            else
+                return 0;
+        }
+    }
+
     public void ReceiveDmg(float damage)
     {
         var stat = Get<Notifier>(hp);
@@ -40,7 +54,21 @@ public class Enemy : MonoBehaviour
         Debug.Log("Received " + damage + " damage");
         Debug.Log("New defense: " + Get<Stats>(defense).Total);
 
+        if (stat.Amount <= 0)
+        {
+            Die();
+        }
+
         animator.SetTrigger("React");
+    }
+
+    private void Die()
+    {
+        Debug.Log("Enemy died");
+
+        player.AddXP();
+
+        Destroy(gameObject);
     }
 
     public void Sleep()

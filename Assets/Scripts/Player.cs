@@ -10,12 +10,17 @@ public class Player : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    [SerializeField] PlayerHealth playerHealth;
+    
     //Player gains experience by defeating enemies.
     //If the XP reaches its max, the character levels up. 
     internal void AddXP()
     {
         var stat = Get<Notifier>(xp);
         stat.Add(xpGain);
+
+        Debug.Log("XP: " + stat.Amount + "/" + stat.Max);
+
         if (stat.Amount >= stat.Max)
         {
             stat.Add(-1 * stat.Max);
@@ -40,6 +45,9 @@ public class Player : MonoBehaviour
         stats.Add(hp, new Notifier(maxHp, maxHp));
         stats.Add(mana, new Notifier(maxMana, maxMana));
         stats.Add(xp, new Notifier(0, maxXp));
+
+        var stat = Get<Notifier>(hp);
+
     }
 
     //A character's strength determines its damage 
@@ -84,9 +92,10 @@ public class Player : MonoBehaviour
     public void ReceiveDmg(float damage)
     {
         var stat = Get<Notifier>(hp);
-        stat.Add(Get<Stats>(defense).Total - damage);
+        var alteredDamage = Get<Stats>(defense).Total - damage;
+        stat.Add(-damage);
 
-        Debug.Log("Received " + damage + " damage");
+        playerHealth.TakeDamage(damage);
 
         animator.SetTrigger("React");
     }

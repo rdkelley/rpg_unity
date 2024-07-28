@@ -36,6 +36,7 @@ public class PatrolState : State
         Debug.Log("Patroling state enabled");
 
         agent.SetDestination(waypoints[current++].position);
+
         if (current == waypoints.Count)
             current = 0;
     }
@@ -47,11 +48,12 @@ public class PatrolState : State
 
     private void Update()
     {
-        if (pointsReached == 2)
-        {
-            Transition(chaseState);
-            return;
-        }
+        //if (pointsReached == 2)
+        //{
+        //    Transition(chaseState);
+        //    return;
+        //}
+
         //if (los.Detected())
         //{
         //    Transition(chaseState);
