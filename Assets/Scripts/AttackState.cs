@@ -31,13 +31,14 @@ public class AttackState : State
     private void Update()
     {
         var direction = player.transform.position - transform.position;
-        if (canTransition && direction.sqrMagnitude > distanceThreshold)
+        if (direction.sqrMagnitude > distanceThreshold * distanceThreshold)
         {
             Transition(chaseState);
             return;
         }
         if (attacking)
             return;
+ 
         attacking = true;
         weapon = GetComponentInChildren<Weapon>();
         transform.forward = direction;
@@ -74,6 +75,7 @@ public class AttackState : State
     {
         yield return new WaitForSeconds(cooldown);
         attacking = false;
-
+        canTransition = false;
+        Transition(chaseState);
     }
 }

@@ -54,19 +54,19 @@ public class ChaseState : State
                 }
                 var p = hit.transform.GetComponent<Player>();
 
-                //if (!p)
-                //{
-                //    miss++;
-                //    if (miss > 5)
-                //    {
-                //        Transition(idleState);
-                //        break;
-                //    }
-                //}
-                //else
-                //{
-                //    miss = 0;
-                //}
+                if (!p)
+                {
+                    miss++;
+                    if (miss > 5)
+                    {
+                        Transition(idleState);
+                        break;
+                    }
+                }
+                else
+                {
+                    miss = 0;
+                }
             }
             if (agent.enabled)
                 agent.SetDestination(player.transform.position);
