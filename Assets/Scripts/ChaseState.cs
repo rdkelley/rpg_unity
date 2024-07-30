@@ -46,10 +46,6 @@ public class ChaseState : State
             RaycastHit hit;
             if (Physics.Raycast(eyes.position, player.transform.position - transform.position, out hit, maxDistance))
             {
-                Debug.Log("Dis:" + hit.distance);
-                Debug.Log("distanceThreshold:" + distanceThreshold);
-                Debug.Log("hit:" + hit.collider.gameObject);
-
                 if (hit.distance < distanceThreshold)
                 {
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] Animator animator;
     [SerializeField] Player player;
+    [SerializeField] PlayerHealth hpbar;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +54,8 @@ public class Enemy : MonoBehaviour
         stat.Add(Get<Stats>(defense).Total - damage);
 
         Debug.Log("Received " + damage + " damage");
-        Debug.Log("New defense: " + Get<Stats>(defense).Total);
+
+        hpbar.TakeDamage(damage);
 
         if (stat.Amount <= 0)
         {

@@ -54,11 +54,11 @@ public class PatrolState : State
         //    return;
         //}
 
-        //if (los.Detected())
-        //{
-        //    Transition(chaseState);
-        //    return;
-        //}
+        if (los.Detected())
+        {
+            Transition(chaseState);
+            return;
+        }
 
         animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
 
