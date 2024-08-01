@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+
     private void Awake()
     {
-        Time.timeScale = 0; 
+        Time.timeScale = 0;
     }
 
     public void StartGame()
     {
         gameObject.SetActive(false);
-        Time.timeScale = 1; 
+        Time.timeScale = 1;
+
+ 
     }
 
     public void TogglePause()
@@ -21,17 +27,17 @@ public class MainMenu : MonoBehaviour
         if (gameObject.activeSelf)
         {
             gameObject.SetActive(false);
-            Time.timeScale = 1; 
+            Time.timeScale = 1;
         }
         else
         {
             gameObject.SetActive(true);
-            Time.timeScale = 0; 
+            Time.timeScale = 0;
         }
     }
 
     public void QuitGame()
     {
-        Application.Quit(); 
+        Application.Quit();
     }
 }

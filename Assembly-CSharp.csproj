@@ -79,11 +79,13 @@
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualButton.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
     <Compile Include="Assets\Scripts\FSM.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Patrol.cs" />
     <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
+    <Compile Include="Assets\Scripts\UItem.cs" />
     <Compile Include="Assets\Scripts\Equipment.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
@@ -94,9 +96,9 @@
     <Compile Include="Assets\Scripts\PatrolState.cs" />
     <Compile Include="Assets\Scripts\FieldOfView.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\UInventory.cs" />
     <Compile Include="Assets\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
     <Compile Include="Assets\Scripts\IdleState.cs" />
-    <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\ThirdPersonController.cs" />
     <Compile Include="Assets\Scripts\Notifier.cs" />
   </ItemGroup>
   <ItemGroup>
