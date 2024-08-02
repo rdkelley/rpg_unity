@@ -1,7 +1,15 @@
-[System.Serializable]
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class UItem
+[System.Serializable]
+public class UItem : MonoBehaviour
 {
     public string itemName;
     public Texture2D itemIcon;
+    // Add other properties as needed
+
+    public void Set(Enums item)
+    {
+    }
 }

@@ -15,6 +15,7 @@ public class Patrol : MonoBehaviour
         StartCoroutine(Patrolling());
     }
 
+
     private IEnumerator Patrolling()
     {
         while (enabled)

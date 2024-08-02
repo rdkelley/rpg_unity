@@ -14,7 +14,7 @@ public class LineOfSight : MonoBehaviour
 
         // Debug log for angle calculation
         float angle = Vector3.Angle(transform.forward, PlayerDirection);
-        Debug.Log($"Angle to player: {angle}");
+        //Debug.Log($"Angle to player: {angle}");
 
         if (Mathf.Abs(angle) < 45)
         {
