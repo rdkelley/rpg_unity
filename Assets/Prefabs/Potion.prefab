@@ -8,6 +8,27 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4424327117408261980, guid: 55f15a46002cc924fadc1cf7e4806cbc,
+        type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 2800000, guid: 49ce94b713801144dafeb73789848904, type: 3}
+    - target: {fileID: -4424327117408261980, guid: 55f15a46002cc924fadc1cf7e4806cbc,
+        type: 3}
+      propertyPath: itemName
+      value: Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421952536496390956, guid: 55f15a46002cc924fadc1cf7e4806cbc,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: b015204894a12fa46b9418587c4fda60,
+        type: 2}
+    - target: {fileID: 2683743340397711603, guid: 55f15a46002cc924fadc1cf7e4806cbc,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 49ce94b713801144dafeb73789848904, type: 3}
     - target: {fileID: 2924130266856763017, guid: 55f15a46002cc924fadc1cf7e4806cbc,
         type: 3}
       propertyPath: m_Name
