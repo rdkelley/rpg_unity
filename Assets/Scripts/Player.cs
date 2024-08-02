@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     [SerializeField] Animator animator;
 
     [SerializeField] PlayerHealth playerHealth;
-    
+
+    [SerializeField] CharMenu charMenu;
+
     //Player gains experience by defeating enemies.
     //If the XP reaches its max, the character levels up. 
     internal void AddXP()
@@ -26,6 +28,11 @@ public class Player : MonoBehaviour
             stat.Add(-1 * stat.Max);
             LevelUp();
         }
+    }
+
+    void OnCharacterMenu()
+    {
+        charMenu.ToggleMenu();
     }
 
     //Leveling up upgrades the basic value of all stats. 
