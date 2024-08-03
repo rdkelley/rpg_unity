@@ -10,32 +10,34 @@ public class CharMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        menu.SetActive(true);
+        menu.SetActive(menuOpen);
     }
 
     public void ToggleMenu()
     {
+        Debug.Log("ToggleMenu" + menuOpen);
+
         if (menuOpen)
         {
-            Resume();
-            menuOpen = false;
+            CloseMenu();
         }
         else
         {
-            Pause();
-            menuOpen = true;
+            OpenMenu();
         }
     }
 
-    void Pause()
+    void OpenMenu()
     {
         menu.SetActive(true);
+        menuOpen = true;
         Time.timeScale = 0f;
     }
 
-    void Resume()
+    void CloseMenu()
     {
         menu.SetActive(false);
+        menuOpen = false;
         Time.timeScale = 1f;
     }
 }

@@ -209,6 +209,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7783070390435167930}
+    - targetCorrespondingSourceObject: {fileID: 2924130266856763017, guid: 55f15a46002cc924fadc1cf7e4806cbc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8720315889673202716}
   m_SourcePrefab: {fileID: 100100000, guid: 55f15a46002cc924fadc1cf7e4806cbc, type: 3}
 --- !u!224 &2150673587553896581 stripped
 RectTransform:
@@ -243,3 +247,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8720315889673202716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4696231848292954578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a967430f9dd8724390b0d08b80f3d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Sword
+  itemIcon: {fileID: 2800000, guid: 635b4dd9265984b4aa75a4e6a01f93c6, type: 3}

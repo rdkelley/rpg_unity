@@ -14,7 +14,7 @@ public class UInventory : MonoBehaviour
 
     Dictionary<string, GameObject> itemVariants = new Dictionary<string, GameObject>();
 
-    void OnEnable()
+    void Start()
     {
         playerInventory.onAddItem += Add;
 

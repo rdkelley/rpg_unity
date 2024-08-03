@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
     void OnCharacterMenu()
     {
+        Debug.Log("OnCharacterMenu");
         charMenu.ToggleMenu();
     }
 
