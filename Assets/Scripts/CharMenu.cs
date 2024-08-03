@@ -11,6 +11,7 @@ public class CharMenu : MonoBehaviour
 
     [SerializeField] ThirdPersonController controller;
     [SerializeField] StarterAssetsInputs playerInput;
+    [SerializeField] Player player;
 
     // Start is called before the first frame update
     void Start()
