@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{EA0D4809-2CE2-3D7C-E2D8-640F1864B2AE}</ProjectGuid>
+    <ProjectGuid>{06B3832E-5638-CABE-A110-388235AE9845}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,46 +60,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PolygonFantasyHeroCharacters\Scripts\CharacterRandomizer.cs" />
-    <Compile Include="Assets\Scripts\AttackState.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\ManaBar.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\PatrolState.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\AttackState.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
-    <Compile Include="Assets\Scripts\ReactState.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Scripts\XpBar.cs" />
-    <Compile Include="Assets\Scripts\ChaseState.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Attack.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Wrapper.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Item.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\ThirdPersonController.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
-    <Compile Include="Assets\Scripts\Inventory.cs" />
-    <Compile Include="Assets\Scripts\Enums.cs" />
-    <Compile Include="Assets\Scripts\LineOfSight.cs" />
-    <Compile Include="Assets\Scripts\Stats.cs" />
-    <Compile Include="Assets\Scripts\ManaBar.cs" />
-    <Compile Include="Assets\Scripts\Attribute.cs" />
-    <Compile Include="Assets\Scripts\PickUp.cs" />
-    <Compile Include="Assets\Scripts\Combat.cs" />
-    <Compile Include="Assets\Scripts\Wrapper.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Player.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Equipment.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Stats.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Weapon.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualButton.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
-    <Compile Include="Assets\Scripts\FSM.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Patrol.cs" />
-    <Compile Include="Assets\Scripts\State.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\ChaseState.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\XpBar.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\CursorLock.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
-    <Compile Include="Assets\Scripts\UItem.cs" />
-    <Compile Include="Assets\Scripts\Equipment.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\ReactState.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\PickUp.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\UItem.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
-    <Compile Include="Assets\Scripts\Weapon.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\CharMenu.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Patrol.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
-    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
-    <Compile Include="Assets\Scripts\Item.cs" />
-    <Compile Include="Assets\Scripts\CursorLock.cs" />
-    <Compile Include="Assets\Scripts\PatrolState.cs" />
-    <Compile Include="Assets\Scripts\FieldOfView.cs" />
-    <Compile Include="Assets\Scripts\Attack.cs" />
-    <Compile Include="Assets\Scripts\UInventory.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Notifier.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\FSM.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\LineOfSight.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\FieldOfView.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Consumable.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\IdleState.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Combat.cs" />
     <Compile Include="Assets\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
-    <Compile Include="Assets\Scripts\IdleState.cs" />
-    <Compile Include="Assets\Scripts\Notifier.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Attribute.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\Enums.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\UInventory.cs" />
+    <Compile Include="Assets\Prefabs\Scripts\State.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
