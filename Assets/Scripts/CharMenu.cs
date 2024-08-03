@@ -15,8 +15,6 @@ public class CharMenu : MonoBehaviour
 
     public void ToggleMenu()
     {
-        Debug.Log("ToggleMenu" + menuOpen);
-
         if (menuOpen)
         {
             CloseMenu();
