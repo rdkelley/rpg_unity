@@ -23,21 +23,9 @@ public class XpBar : MonoBehaviour
         xpStat.onChange += UpdateXpBar;
     }
 
-    void Awake()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void UpdateXpBar()
     {
         var xpStat = player.Get<Notifier>(xp);
-
-        Debug.Log("XP Update called: " + xpStat.Amount);
 
         if (xpSlider.value != xpStat.Amount)
         {

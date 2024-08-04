@@ -51,18 +51,21 @@ public class Enemy : MonoBehaviour
     public void ReceiveDmg(float damage)
     {
         var stat = Get<Notifier>(hp);
-        stat.Add(Get<Stats>(defense).Total - damage);
+        float currentHealth = stat.Amount;
 
-        Debug.Log("Received " + damage + " damage");
+        float newHealth = currentHealth - damage;
 
-        hpbar.TakeDamage(damage);
+        stat.Add(-damage);
 
-        if (stat.Amount <= 0)
+        if (newHealth <= 0)
         {
             Die();
         }
+        else
+        {
+            animator.SetTrigger("React");
+        }
 
-        animator.SetTrigger("React");
     }
 
     private void Die()

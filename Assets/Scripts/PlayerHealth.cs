@@ -5,34 +5,30 @@ public class PlayerHealth : MonoBehaviour
 {
     public Slider healthSlider;
 
+    [SerializeField] public Attribute hp;
+    [SerializeField] public Player player;
+
     public float maxHealth = 100;
     public float currentHealth;
 
     void Start()
     {
-        currentHealth = maxHealth;
         UpdateHealthBar();
+
+        var hpStat = player.Get<Notifier>(hp);
+        hpStat.onChange += UpdateHealthBar;
     }
 
     void UpdateHealthBar()
     {
+        var hpStat = player.Get<Notifier>(hp);
+        currentHealth = hpStat.Amount;
+
         if (healthSlider.value != currentHealth)
         {
             healthSlider.value = currentHealth;
         }
     }
 
-    public void TakeDamage(float damageAmount)
-    {
-        Debug.Log("Player took " + damageAmount + " damage!");
-        currentHealth -= damageAmount;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth); // Ensure health doesn't go below zero
-        UpdateHealthBar();
 
-        if (currentHealth <= 0f)
-        {
-            // Implement player defeat or death logic
-            Debug.Log("Player defeated!");
-        }
-    }
 }

@@ -14,7 +14,9 @@ public class Combat : MonoBehaviour
     [SerializeField] bool attacking;
     [SerializeField] private CinemachineVirtualCamera aimCamera;
 
-    [SerializeField] ManaBar manabar;
+    [SerializeField] int manaUsedDart;
+
+    [SerializeField] Player player;
 
     PlayerInput playerInput;
 
@@ -83,7 +85,7 @@ public class Combat : MonoBehaviour
         {
             Debug.Log("Sleep dart fired at: " + hit.collider);
 
-            manabar.UseMana(50);
+            player.UseMana(manaUsedDart);
 
             if (hit.collider)
             {

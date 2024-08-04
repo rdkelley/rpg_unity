@@ -6,11 +6,10 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float xpGain, maxHp, maxMana, maxXp, baseStr, baseDef, baseInt;
     [SerializeField] Attribute strength, defense, intelligence, hp, mana, xp;
+    [SerializeField] int manaRegenRate;
     [SerializeField] Dictionary<Attribute, Wrapper> stats = new Dictionary<Attribute, Wrapper>();
 
     [SerializeField] Animator animator;
-
-    [SerializeField] PlayerHealth playerHealth;
 
     [SerializeField] CharMenu charMenu;
 
@@ -30,6 +29,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        var stat = Get<Notifier>(mana);
+        float currentMana = stat.Amount;
+
+        if (currentMana < maxMana)
+        {
+            var manaInc = manaRegenRate * Time.deltaTime;
+
+            stat.Add(manaInc);
+
+        }
+    }
+
+    public void UseMana(float amount)
+    {
+        var stat = Get<Notifier>(mana);
+        stat.Add(-amount);
+    }
+
     void OnCharacterMenu()
     {
         charMenu.ToggleMenu();
@@ -42,6 +61,8 @@ public class Player : MonoBehaviour
         Get<Stats>(defense).Upgrade();
         Get<Stats>(intelligence).Upgrade();
     }
+
+
 
     //Populate the wrapper dictionary with the player attributes 
     private void Awake()
@@ -98,14 +119,27 @@ public class Player : MonoBehaviour
     //A character's defense determines how much incoming damage is reduced
     public void ReceiveDmg(float damage)
     {
+        Debug.Log("Player received damage: " + damage);
         var stat = Get<Notifier>(hp);
-        var alteredDamage = Get<Stats>(defense).Total - damage;
-        stat.Add(-damage);
+        float currentHealth = stat.Amount;
 
-        playerHealth.TakeDamage(damage);
+        var defenseModifier = (100 - Get<Stats>(defense).Total) * 0.01f;
+        float alteredDamage = damage * defenseModifier;
+        float newHealth = currentHealth - alteredDamage;
 
-        animator.SetTrigger("React");
+        stat.Add(-alteredDamage);
+
+        if (newHealth <= 0f)
+        {
+            // Implement player defeat or death logic
+            Debug.Log("Player defeated!");
+        }
+        else
+        {
+            animator.SetTrigger("React");
+        }
     }
+
 
     //All classes can use this function to access a character's wrappers
     //simply by referencing an attribute ScriptableObject 
