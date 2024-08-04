@@ -88,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   itemIcon: {fileID: 0}
+  item: {fileID: 0}
 --- !u!114 &-7190266944826601220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,4 +132,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2683743340397711603}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4147081648711974403}
+        m_TargetAssemblyTypeName: UItem, Assembly-CSharp
+        m_MethodName: OnItemClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -6,34 +6,42 @@ public class UInventory : MonoBehaviour
 {
     public List<UItem> items = new List<UItem>();
     public GameObject inventoryPanel;
+
     public GameObject uPotionHPrefab;
     public GameObject uPotionMPrefab;
     public GameObject uSwordPrefab;
 
+    [SerializeField] Item healthPotion;
+    [SerializeField] Item manaPotion;
+
     [SerializeField] Inventory playerInventory;
     [SerializeField] Player player;
 
-    Dictionary<string, GameObject> itemVariants = new Dictionary<string, GameObject>();
+    Dictionary<string, GameObject> uItemVariants = new Dictionary<string, GameObject>();
+    Dictionary<string, Item> itemConsumable = new Dictionary<string, Item>();
 
     void Start()
     {
         playerInventory.onAddItem += Add;
 
-        itemVariants.Add("Potion", uPotionHPrefab);
-        itemVariants.Add("PotionM", uPotionMPrefab);
-        itemVariants.Add("Sword", uSwordPrefab);
+        uItemVariants.Add("PotionHealth", uPotionHPrefab);
+        uItemVariants.Add("PotionMana", uPotionMPrefab);
+        uItemVariants.Add("Sword", uSwordPrefab);
+
+        itemConsumable.Add("PotionHealth", healthPotion);
+        itemConsumable.Add("PotionMana", manaPotion);
     }
 
-    public void UseItem(Enums Item)
+    public void UseItem(string item)
     {
-        Debug.Log(Item.ToString());
+        itemConsumable[item].Use(player);
     }
 
     void Add(Enums item)
     {
         Debug.Log("ITEM ADDED: " + item.ToString());
 
-        GameObject slot = Instantiate(itemVariants[item.ToString()], inventoryPanel.transform);
+        GameObject slot = Instantiate(uItemVariants[item.ToString()], inventoryPanel.transform);
 
         // Set slot properties like position, icon, etc.
         slot.GetComponent<UItem>().Set(item);

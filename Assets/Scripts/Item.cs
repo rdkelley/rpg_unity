@@ -5,9 +5,8 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    public Texture2D icon;
     public Action<Item> OnUse;
-    public GameObject worldPrefab;
+    //public GameObject worldPrefab;
     [SerializeField] float amount;
     public float Amount => amount;
     [SerializeField] protected Attribute attribute;

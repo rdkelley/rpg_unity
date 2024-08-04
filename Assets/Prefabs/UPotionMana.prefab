@@ -16,14 +16,13 @@ PrefabInstance:
     - target: {fileID: -7190266944826601220, guid: 55f15a46002cc924fadc1cf7e4806cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7190266944826601220, guid: 55f15a46002cc924fadc1cf7e4806cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: -6132574116980937242, guid: 6030080dc60cbf04c95bb59ccdd872e5,
-        type: 3}
+      objectReference: {fileID: 8297635125121931640}
     - target: {fileID: -7190266944826601220, guid: 55f15a46002cc924fadc1cf7e4806cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -32,23 +31,22 @@ PrefabInstance:
     - target: {fileID: -7190266944826601220, guid: 55f15a46002cc924fadc1cf7e4806cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UseItem
+      value: OnItemClick
       objectReference: {fileID: 0}
     - target: {fileID: -7190266944826601220, guid: 55f15a46002cc924fadc1cf7e4806cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UInventory, Assembly-CSharp
+      value: UItem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: -7190266944826601220, guid: 55f15a46002cc924fadc1cf7e4806cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: b015204894a12fa46b9418587c4fda60,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: -7190266944826601220, guid: 55f15a46002cc924fadc1cf7e4806cbc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Enums, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: -4147081648711974403, guid: 55f15a46002cc924fadc1cf7e4806cbc,
         type: 3}
@@ -180,3 +178,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f15a46002cc924fadc1cf7e4806cbc, type: 3}
+--- !u!114 &8297635125121931640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4147081648711974403, guid: 55f15a46002cc924fadc1cf7e4806cbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 3843123098015045765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a967430f9dd8724390b0d08b80f3d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

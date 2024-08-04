@@ -13,10 +13,16 @@ public class CharMenu : MonoBehaviour
     [SerializeField] StarterAssetsInputs playerInput;
     [SerializeField] Player player;
 
+    public InputActionAsset inputActions;
+    private InputAction attackAction;
+
     // Start is called before the first frame update
     void Start()
     {
         menu.SetActive(menuOpen);
+
+        var playerActionMap = inputActions.FindActionMap("Player");
+        attackAction = playerActionMap.FindAction("Attack");
     }
 
     public void ShowCursor()
@@ -35,6 +41,8 @@ public class CharMenu : MonoBehaviour
     {
         if (menuOpen)
         {
+            attackAction.Enable();
+
             HideCursor();
 
             controller.enabled = true;
@@ -43,6 +51,8 @@ public class CharMenu : MonoBehaviour
         }
         else
         {
+            attackAction.Disable();
+
             ShowCursor();
 
             controller.enabled = false;

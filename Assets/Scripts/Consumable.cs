@@ -7,7 +7,7 @@ public class Consumable : Item
 {
     public override void Use(Player player)
     {
-        Debug.Log("THIS RAN!");
+        Debug.Log("USE CALLED" + player);
         var notifier = player.Get<Notifier>(attribute) as Notifier;
         notifier.Add(Amount);
     }

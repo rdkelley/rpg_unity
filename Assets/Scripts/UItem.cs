@@ -8,14 +8,29 @@ public class UItem : MonoBehaviour
     public string itemName;
     public Texture2D itemIcon;
     public Item item;
-    // Add other properties as needed
+
+    UInventory uInventory;
+
+    void Start()
+    {
+        GameObject inventoryObject = GameObject.FindWithTag("Inventory");
+
+        uInventory = inventoryObject.GetComponent<UInventory>();
+    }
 
     public void Set(Enums item)
     {
     }
 
-    public void UseItem(Player player)
+    public void OnItemClick()
     {
-        item.Use(player);
+        uInventory.UseItem(itemName);
+
+        RemoveFromInventory();
+    }
+
+    void RemoveFromInventory()
+    {
+        Destroy(gameObject);
     }
 }

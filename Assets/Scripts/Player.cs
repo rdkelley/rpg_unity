@@ -32,8 +32,6 @@ public class Player : MonoBehaviour
 
     void OnCharacterMenu()
     {
-
-       
         charMenu.ToggleMenu();
     }
 
