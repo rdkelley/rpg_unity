@@ -10,6 +10,8 @@ public class Equipment : Item, IModifier
 
     public static Dictionary<Enums, Equipment> active = new Dictionary<Enums, Equipment>();
 
+    [SerializeField] Player player;
+
     public override void Use(Player player)
     {
         if (active.ContainsKey(set))

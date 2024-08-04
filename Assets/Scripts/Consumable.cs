@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Consumable : Item
 {
-
     public override void Use(Player player)
     {
         Debug.Log("THIS RAN!");

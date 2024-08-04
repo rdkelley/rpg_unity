@@ -10,6 +10,7 @@ public class UInventory : MonoBehaviour
     public GameObject uSwordPrefab;
 
     [SerializeField] Inventory playerInventory;
+    [SerializeField] Player player;
 
     Dictionary<string, GameObject> itemVariants = new Dictionary<string, GameObject>();
 
@@ -19,6 +20,11 @@ public class UInventory : MonoBehaviour
 
         itemVariants.Add("Potion", uPotionPrefab);
         itemVariants.Add("Sword", uSwordPrefab);
+    }
+
+    public void UseItem(Enums Item)
+    {
+        Debug.Log(Item.ToString());
     }
 
     void Add(Enums item)
