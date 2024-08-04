@@ -6,7 +6,8 @@ public class UInventory : MonoBehaviour
 {
     public List<UItem> items = new List<UItem>();
     public GameObject inventoryPanel;
-    public GameObject uPotionPrefab;
+    public GameObject uPotionHPrefab;
+    public GameObject uPotionMPrefab;
     public GameObject uSwordPrefab;
 
     [SerializeField] Inventory playerInventory;
@@ -18,7 +19,8 @@ public class UInventory : MonoBehaviour
     {
         playerInventory.onAddItem += Add;
 
-        itemVariants.Add("Potion", uPotionPrefab);
+        itemVariants.Add("Potion", uPotionHPrefab);
+        itemVariants.Add("PotionM", uPotionMPrefab);
         itemVariants.Add("Sword", uSwordPrefab);
     }
 

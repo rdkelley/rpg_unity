@@ -11,7 +11,7 @@ public abstract class Item : MonoBehaviour
     [SerializeField] float amount;
     public float Amount => amount;
     [SerializeField] protected Attribute attribute;
-    public Attribute Attribute => attribute;
+    public virtual Attribute Attribute => attribute;
 
     public abstract void Use(Player player); 
 
