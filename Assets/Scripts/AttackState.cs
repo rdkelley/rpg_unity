@@ -48,6 +48,8 @@ public class AttackState : State
         agent.enabled = false;
         canTransition = false;
         animator.SetTrigger("Attack");
+
+        StartCoroutine(Cooldown());
     }
 
     private void OnEnable()

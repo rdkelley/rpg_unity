@@ -29,6 +29,8 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //Activate();
+
         if (other.transform.root == transform.root)
         {
             return;

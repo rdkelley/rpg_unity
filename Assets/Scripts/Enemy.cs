@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] PlayerHealth hpbar;
 
+    [SerializeField] bool dead;
+
     public event Action SleepInit;
     public event Action DeathInit;
 
@@ -58,15 +60,12 @@ public class Enemy : MonoBehaviour
 
     public void ReceiveDmg(float damage)
     {
-        Debug.Log("Received damage: " + damage);
         var stat = Get<Notifier>(hp);
         float currentHealth = stat.Amount;
 
         float newHealth = currentHealth - damage;
 
         stat.Add(-damage);
-
-        Debug.Log("newhealth: " + newHealth);
 
         if (newHealth <= 0)
         {
@@ -80,13 +79,16 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        if (!dead)
+        {
+            dead = true;
 
-        player.AddXP();
+            player.AddXP();
 
-        animator.SetTrigger("Die");
+            animator.SetTrigger("Die");
 
-        SleepInit?.Invoke();
-
+            SleepInit?.Invoke();
+        }
         //Destroy(gameObject);
     }
 

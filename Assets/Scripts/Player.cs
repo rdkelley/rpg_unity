@@ -119,7 +119,6 @@ public class Player : MonoBehaviour
     //A character's defense determines how much incoming damage is reduced
     public void ReceiveDmg(float damage)
     {
-        Debug.Log("Player received damage: " + damage);
         var stat = Get<Notifier>(hp);
         float currentHealth = stat.Amount;
 
@@ -133,6 +132,8 @@ public class Player : MonoBehaviour
         {
             // Implement player defeat or death logic
             Debug.Log("Player defeated!");
+
+            animator.SetTrigger("Die");
         }
         else
         {
