@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
 
     public void Sleep()
     {
-        Debug.Log("Sleeping");
+        animator.SetTrigger("Sleep");
     }
 
     //All classes can use this function to access a character's wrappers
