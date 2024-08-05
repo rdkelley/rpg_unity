@@ -13,12 +13,13 @@ public class UInventory : MonoBehaviour
 
     [SerializeField] Item healthPotion;
     [SerializeField] Item manaPotion;
+    [SerializeField] Item sword;
 
     [SerializeField] Inventory playerInventory;
     [SerializeField] Player player;
 
     Dictionary<string, GameObject> uItemVariants = new Dictionary<string, GameObject>();
-    Dictionary<string, Item> itemConsumable = new Dictionary<string, Item>();
+    Dictionary<string, Item> usableItems = new Dictionary<string, Item>();
 
     void Start()
     {
@@ -28,13 +29,14 @@ public class UInventory : MonoBehaviour
         uItemVariants.Add("PotionMana", uPotionMPrefab);
         uItemVariants.Add("Sword", uSwordPrefab);
 
-        itemConsumable.Add("PotionHealth", healthPotion);
-        itemConsumable.Add("PotionMana", manaPotion);
+        usableItems.Add("PotionHealth", healthPotion);
+        usableItems.Add("PotionMana", manaPotion);
+        usableItems.Add("Sword", sword);
     }
 
     public void UseItem(string item)
     {
-        itemConsumable[item].Use(player);
+        usableItems[item].Use(player);
     }
 
     void Add(Enums item)

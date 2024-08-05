@@ -25,12 +25,15 @@ public class StatPanel : MonoBehaviour
         var hpStat = player.Get<Notifier>(hp);
         var manaStat = player.Get<Notifier>(mana);
         var xpStat = player.Get<Notifier>(xp);
-        var defStat = player.Get<Notifier>(defense);
+
+        var defStat = player.Get<Stats>(defense);
 
         hpStat.onChange += UpdateHealthText;
         manaStat.onChange += UpdateManaText;
         xpStat.onChange += UpdateXpText;
         defStat.onChange += UpdateDefText;
+
+        if (defStat != null) UpdateDefText(defStat.Amount);
     }
 
     void UpdateHealthText()
@@ -58,9 +61,9 @@ public class StatPanel : MonoBehaviour
         xpText.text = current.ToString();
     }
 
-    void UpdateDefText()
+    void UpdateDefText(float def)
     {
-        var stat = player.Get<Notifier>(defense);
+        var stat = player.Get<Stats>(defense);
         var current = stat.Amount;
 
         defText.text = current.ToString();

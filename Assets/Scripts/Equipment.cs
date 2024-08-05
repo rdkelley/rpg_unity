@@ -14,6 +14,8 @@ public class Equipment : Item, IModifier
 
     public override void Use(Player player)
     {
+        Debug.Log("USE called: " + player);
+
         if (active.ContainsKey(set))
         {
             //First deactivate the equipped equipment
