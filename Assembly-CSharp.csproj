@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\XpBar.cs" />
     <Compile Include="Assets\Scripts\ChaseState.cs" />
+    <Compile Include="Assets\Scripts\ArmorEquip.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Scripts\Stats.cs" />
     <Compile Include="Assets\Scripts\ManaBar.cs" />
     <Compile Include="Assets\Scripts\Attribute.cs" />
+    <Compile Include="Assets\Scripts\StatPanel.cs" />
     <Compile Include="Assets\Scripts\PickUp.cs" />
     <Compile Include="Assets\Scripts\Combat.cs" />
     <Compile Include="Assets\Scripts\Wrapper.cs" />
@@ -89,8 +91,10 @@
     <Compile Include="Assets\Scripts\CharMenu.cs" />
     <Compile Include="Assets\Scripts\Equipment.cs" />
     <Compile Include="Assets\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
+    <Compile Include="Assets\Scripts\ManaPotion.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
+    <Compile Include="Assets\Scripts\HealthPotion.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\CursorLock.cs" />
@@ -100,6 +104,7 @@
     <Compile Include="Assets\Scripts\UInventory.cs" />
     <Compile Include="Assets\Scripts\Consumable.cs" />
     <Compile Include="Assets\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
+    <Compile Include="Assets\Scripts\WeaponEquip.cs" />
     <Compile Include="Assets\Scripts\IdleState.cs" />
     <Compile Include="Assets\Scripts\Notifier.cs" />
   </ItemGroup>

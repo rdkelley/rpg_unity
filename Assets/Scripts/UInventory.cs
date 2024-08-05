@@ -10,10 +10,14 @@ public class UInventory : MonoBehaviour
     public GameObject uPotionHPrefab;
     public GameObject uPotionMPrefab;
     public GameObject uSwordPrefab;
+    public GameObject uHeavyMetalPrefab;
+    public GameObject uWolfPrefab;
 
     [SerializeField] Item healthPotion;
     [SerializeField] Item manaPotion;
     [SerializeField] Item sword;
+    [SerializeField] Item HeavyMetalArmor;
+    [SerializeField] Item WolfArmor;
 
     [SerializeField] Inventory playerInventory;
     [SerializeField] Player player;
@@ -28,14 +32,21 @@ public class UInventory : MonoBehaviour
         uItemVariants.Add("PotionHealth", uPotionHPrefab);
         uItemVariants.Add("PotionMana", uPotionMPrefab);
         uItemVariants.Add("Sword", uSwordPrefab);
+        uItemVariants.Add("HeavyMetalArmor", uHeavyMetalPrefab);
+        uItemVariants.Add("WolfArmor", uWolfPrefab);
 
         usableItems.Add("PotionHealth", healthPotion);
         usableItems.Add("PotionMana", manaPotion);
         usableItems.Add("Sword", sword);
+        usableItems.Add("HeavyMetalArmor", HeavyMetalArmor);
+        usableItems.Add("WolfArmor", WolfArmor);
+
+
     }
 
     public void UseItem(string item)
     {
+        Debug.Log("Use Item:" + item);
         usableItems[item].Use(player);
     }
 

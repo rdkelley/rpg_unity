@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33825736805973426}
   - component: {fileID: 23117459967448536}
   m_Layer: 0
-  m_Name: Chr_HeadCoverings_No_Hair_10_Static
+  m_Name: WolfHelmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
