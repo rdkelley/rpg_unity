@@ -13,6 +13,7 @@ public class PatrolState : State
     [SerializeField] ChaseState chaseState;
     [SerializeField] ReactState reactState;
     [SerializeField] IdleState idleState;
+    [SerializeField] SleepState sleepState;
 
     int pointsReached;
 
@@ -22,6 +23,7 @@ public class PatrolState : State
         chaseState = GetComponent<ChaseState>();
         reactState = GetComponent<ReactState>();
         idleState = GetComponent<IdleState>();
+        sleepState = GetComponent<SleepState>();
 
         pointsReached = 0;
     }
@@ -29,6 +31,7 @@ public class PatrolState : State
     public override void Setup()
     {
         enemy.hp.onChange += () => Transition(reactState);
+        enemy.SleepInit += () => Transition(sleepState);
     }
 
     private void OnEnable()

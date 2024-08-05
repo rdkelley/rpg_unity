@@ -1,25 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-#endif
+
 
 public class MainMenu : MonoBehaviour
 {
-
-
     private void Awake()
     {
         Time.timeScale = 0;
+        ShowCursor();
+    }
+
+    void OnEnable()
+    {
+    }
+
+    public void ShowCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void HideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void StartGame()
     {
         gameObject.SetActive(false);
         Time.timeScale = 1;
-
- 
     }
 
     public void TogglePause()

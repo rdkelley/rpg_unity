@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] Player player;
     [SerializeField] PlayerHealth hpbar;
+
+    public event Action SleepInit;
+    public event Action DeathInit;
 
     // Start is called before the first frame update
     void Start()
@@ -72,16 +76,16 @@ public class Enemy : MonoBehaviour
         {
             animator.SetTrigger("React");
         }
-
     }
 
     private void Die()
     {
-        Debug.Log("Enemy died");
 
         player.AddXP();
 
         animator.SetTrigger("Die");
+
+        SleepInit?.Invoke();
 
         //Destroy(gameObject);
     }
@@ -89,6 +93,8 @@ public class Enemy : MonoBehaviour
     public void Sleep()
     {
         animator.SetTrigger("Sleep");
+
+        SleepInit?.Invoke();
     }
 
     //All classes can use this function to access a character's wrappers

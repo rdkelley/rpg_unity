@@ -12,6 +12,7 @@ public class IdleState : State
     [SerializeField] ChaseState chaseState;
     [SerializeField] ReactState reactState;
     [SerializeField] PatrolState patrolState;
+    [SerializeField] SleepState sleepState;
 
     private new void OnValidate()
     {
@@ -19,11 +20,13 @@ public class IdleState : State
         chaseState = GetComponent<ChaseState>();
         reactState = GetComponent<ReactState>();
         patrolState = GetComponent<PatrolState>();
+        sleepState = GetComponent<SleepState>();
     }
 
     public override void Setup()
     {
         enemy.hp.onChange += () => Transition(reactState);
+        enemy.SleepInit += () => Transition(sleepState);
     }
 
     private void OnEnable()

@@ -14,17 +14,20 @@ public class AttackState : State
     [Header("States")]
     [SerializeField] ChaseState chaseState;
     [SerializeField] ReactState reactState;
+    [SerializeField] SleepState sleepState;
 
     private new void OnValidate()
     {
         base.OnValidate();
         chaseState = GetComponent<ChaseState>();
         reactState = GetComponent<ReactState>();
+        sleepState = GetComponent<SleepState>();
     }
 
     public override void Setup()
     {
         enemy.hp.onChange += () => Transition(reactState);
+        enemy.SleepInit += () => Transition(sleepState);
     }
 
     [SerializeField] bool attacking;
