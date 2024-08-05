@@ -27,6 +27,11 @@ public class Combat : MonoBehaviour
 
     public Camera camera;
 
+    void Start()
+    {
+        
+    }
+
     private void OnValidate()
     {
         animator = GetComponent<Animator>();
@@ -58,10 +63,15 @@ public class Combat : MonoBehaviour
 
             Ray ray = Camera.main.ScreenPointToRay(screenCenter);
 
+            Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red);
+
             if (Physics.Raycast(ray, out hit, 1000))
             {
+               
                 aimHitPoint = hit.point;
             }
+
+            Debug.Log(hit.collider);
 
             aimDirection = (aimHitPoint - aimCamera.gameObject.transform.position).normalized;
 
@@ -100,10 +110,26 @@ public class Combat : MonoBehaviour
         }
         else
         {
+            controller.enabled = false;
+
             weapon = GetComponentInChildren<Weapon>();
 
             animator.SetTrigger("Attack");
         }
+    }
+
+    public void AttackAnimationFinish()
+    {
+        if (!controller.enabled)
+        {
+            controller.enabled = true;
+        }
+
+        if (weapon)
+        {
+            weapon.Activate();
+        }
+        
     }
 
     public void OnAim(InputValue value)

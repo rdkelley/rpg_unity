@@ -33,8 +33,6 @@ public class PatrolState : State
 
     private void OnEnable()
     {
-        Debug.Log("Patroling state enabled");
-
         agent.SetDestination(waypoints[current++].position);
 
         if (current == waypoints.Count)
@@ -56,7 +54,6 @@ public class PatrolState : State
 
         if (los.Detected())
         {
-            Debug.Log("Transitioning to chase state");
             Transition(chaseState);
             return;
         }
@@ -66,7 +63,6 @@ public class PatrolState : State
         if (agent.remainingDistance < minDistance)
         {
             pointsReached++;
-            Debug.Log("Reached Waypoint, transitioning back to IdleState");
             Transition(idleState);
         }
     }
