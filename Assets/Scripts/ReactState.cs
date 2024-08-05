@@ -18,7 +18,6 @@ public class ReactState : State
 
     private void OnEnable()
     {
-        Debug.Log("React state enabled");
     }
 
     private void Update()

@@ -2166,7 +2166,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.03
+  m_Radius: 0.015
   m_Height: 1.209832
   m_Direction: 1
   m_Center: {x: -0.000022245755, y: 0.51199216, z: 0.000041331266}
@@ -3078,7 +3078,7 @@ PrefabInstance:
     - target: {fileID: 6431779963224564682, guid: 0ff6400220006b8498845aaa8d1de361,
         type: 3}
       propertyPath: m_NeverAutoSwitchControlSchemes
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6732280823393692166, guid: 0ff6400220006b8498845aaa8d1de361,
         type: 3}
@@ -4823,7 +4823,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1577968911}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99722177
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10861,7 +10861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000012179305}
+  m_AnchoredPosition: {x: 0, y: 0.00060901605}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &1854512247
@@ -12476,7 +12476,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.06
+  m_Radius: 0.015
   m_Height: 1.2098317
   m_Direction: 1
   m_Center: {x: -0.000022264907, y: 0.51199967, z: 0.000025974132}

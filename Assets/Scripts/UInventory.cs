@@ -41,8 +41,6 @@ public class UInventory : MonoBehaviour
 
     void Add(Enums item)
     {
-        Debug.Log("ITEM ADDED: " + item.ToString());
-
         GameObject slot = Instantiate(uItemVariants[item.ToString()], inventoryPanel.transform);
 
         // Set slot properties like position, icon, etc.

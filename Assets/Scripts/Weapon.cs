@@ -53,7 +53,7 @@ public class Weapon : MonoBehaviour
         }
 
         //Deactivate the weapon to prevent damaging multiple times with one swing.
-
+        Deactivate();
 
     }
 }

@@ -24,13 +24,11 @@ public class FSM : MonoBehaviour
             state.Setup();
         }
 
-        Debug.Log("Setting current state to " + current);
         current.enabled = true;
     }
 
     void ChangeState(State other)
     {
-        Debug.Log("Changing state from " + current + " to " + other);
 
         current.enabled = false;
         current = other;

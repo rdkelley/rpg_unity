@@ -25,6 +25,10 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public void AttackAnimationFinish()
+    {
+    }
+
     private void Awake()
     {
         stats.Add(strength, new Stats(baseStr));
@@ -50,12 +54,15 @@ public class Enemy : MonoBehaviour
 
     public void ReceiveDmg(float damage)
     {
+        Debug.Log("Received damage: " + damage);
         var stat = Get<Notifier>(hp);
         float currentHealth = stat.Amount;
 
         float newHealth = currentHealth - damage;
 
         stat.Add(-damage);
+
+        Debug.Log("newhealth: " + newHealth);
 
         if (newHealth <= 0)
         {
@@ -74,7 +81,9 @@ public class Enemy : MonoBehaviour
 
         player.AddXP();
 
-        Destroy(gameObject);
+        animator.SetTrigger("Die");
+
+        //Destroy(gameObject);
     }
 
     public void Sleep()

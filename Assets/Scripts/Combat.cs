@@ -81,6 +81,9 @@ public class Combat : MonoBehaviour
 
         Enemy enemy;
 
+        controller.enabled = false;
+
+
         if (aiming)
         {
             Debug.Log("Sleep dart fired at: " + hit.collider);
@@ -104,6 +107,20 @@ public class Combat : MonoBehaviour
 
             animator.SetTrigger("Attack");
         }
+    }
+
+    public void AttackAnimationFinish()
+    {
+        if (!controller.enabled)
+        {
+            controller.enabled = true;
+        }
+
+        if (weapon)
+        {
+            weapon.Activate();
+        }
+        
     }
 
     public void OnAim(InputValue value)

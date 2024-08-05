@@ -38,7 +38,7 @@ public class AttackState : State
         }
         if (attacking)
             return;
- 
+
         attacking = true;
         weapon = GetComponentInChildren<Weapon>();
         transform.forward = direction;
@@ -49,7 +49,6 @@ public class AttackState : State
 
     private void OnEnable()
     {
-        Debug.Log("Attacking state enabled");
         attacking = false;
     }
 

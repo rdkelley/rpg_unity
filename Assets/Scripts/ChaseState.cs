@@ -34,7 +34,6 @@ public class ChaseState : State
 
     public override void Setup()
     {
-        Debug.Log("Chase state enabled");
         enemy.hp.onChange += () => Transition(reactState);
     }
 
